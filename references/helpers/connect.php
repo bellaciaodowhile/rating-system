@@ -1,5 +1,5 @@
 <?php 
-   define('BASE_URL', 'http://localhost/rating/pcgamer/');
+   define('BASE_URL', 'http://localhost/rating/references/');
    $db_name = 'mysql:host=localhost;dbname=reviews_db';
    $db_user_name = 'root';
    $db_user_pass = '';
@@ -19,6 +19,16 @@
    if(isset($_COOKIE['user_id'])){
       $user_id = $_COOKIE['user_id'];
       $post_id = $_COOKIE['post_id'];
+      if (isset($_COOKIE['user_vip'])) {
+         $user_vip = $_COOKIE['user_vip'];
+      } else {
+         $user_vip = '';
+      }
+      if (isset($_COOKIE['user_vipstatus'])) {
+         $user_vipstatus = $_COOKIE['user_vipstatus'];
+      } else {
+         $user_vipstatus = '';
+      }
    }else{
       $user_id = '';
       $post_id = '';

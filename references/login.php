@@ -18,6 +18,8 @@ if(isset($_POST['submit'])){
       $verfiy_pass = password_verify($pass, $fetch['password']);
       if($verfiy_pass == 1){
          setcookie('user_id', $fetch['id'], time() + 60*60*24*30, '/');
+         setcookie('user_vip', $fetch['vip'], time() + 60*60*24*30, '/');
+         setcookie('user_vipstatus', $fetch['vip_status'], time() + 60*60*24*30, '/');
          header('location:index.php');
          $_SESSION['user'] = $fetch['name'];
          $post = $conn->prepare("SELECT * FROM `posts` WHERE title = ? LIMIT 1");
@@ -43,9 +45,9 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>PC Gamer References | Inicio de sesión</title>
+   <title>  Rating Me | Inicio de sesión</title>
 
-   <!-- custom css file link  -->
+   <link rel="shortcut icon" href="<?php echo BASE_URL . "uploaded_files/icon.png"; ?>">
    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -59,7 +61,7 @@ if(isset($_POST['submit'])){
 <section class="account-form">
 
    <form action="" method="post" enctype="multipart/form-data">
-      <h3>PC Gamer References</h3>
+      <h3>  Rating Me</h3>
       <p class="placeholder">Correo <span>*</span></p>
       <input type="email" name="email" required maxlength="50" placeholder="mail@mail.com" class="box">
       <p class="placeholder">your password <span>*</span></p>
@@ -93,7 +95,7 @@ if(isset($_POST['submit'])){
 
 
 
-<!-- sweetalert cdn link  -->
+<?php include 'helpers/footer.php'; ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="js/app.js"></script>
 <!-- custom js file link  -->

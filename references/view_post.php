@@ -20,9 +20,9 @@ if(isset($_POST['delete_review'])){
    if($verify_delete->rowCount() > 0){
       $delete_review = $conn->prepare("DELETE FROM `reviews` WHERE id = ?");
       $delete_review->execute([$delete_id]);
-      $success_msg[] = 'Review deleted!';
+      $success_msg[] = 'Referencia eliminada.';
    }else{  
-      $warning_msg[] = 'Review already deleted!';
+      $warning_msg[] = 'Referencia ya eliminada.';
    }
 
 }
@@ -77,9 +77,9 @@ if(isset($_POST['delete_review'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>PC Gamer References | Referencias de: <?= $fetch_post['title']; ?></title>
+   <title>  Rating Me | Referencias de: <?= $fetch_post['title']; ?></title>
 
-   <!-- custom css file link  -->
+   <link rel="shortcut icon" href="<?php echo BASE_URL . "uploaded_files/icon.png"; ?>">
    <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -93,7 +93,7 @@ if(isset($_POST['delete_review'])){
 
 <section class="view-post">
 
-   <div class="heading"><h1>Referencias</h1> <a href="index.php" class="inline-option-btn" style="margin-top: 0;">Todos las referencias</a></div>
+   <div class="heading jcsb"><h1>Referencias</h1> <a href="index.php" class="inline-option-btn" style="margin-top: 0;">Todas las referencias</a></div>
 
    <div class="row">
       <div class="col">
@@ -150,20 +150,34 @@ if(isset($_POST['delete_review'])){
 <!-- reviews section starts  -->
 
 <section class="reviews-container">
-   <?php if ($fetch_post['title'] != $_SESSION['user']) {
-      if ($user_id != '') {?>
-      <div class="heading"><h1>Referencias de clientes</h1> <a href="add_review.php?get_id=<?= $get_id; ?>" class="inline-btn" style="margin-top: 0;">añadir referencia</a></div>
-   <?php }
-   }
+   <?php
+   if (isset($_SESSION['user'])) {
+      if ($fetch_post['title'] != $_SESSION['user']) {
+         if ($user_id != '') {
+            $select_reviews = $conn->prepare("SELECT * FROM `reviews` WHERE post_id = ?");
+            $select_reviews->execute([$get_id]);
+            $select_profile = $conn->prepare("SELECT * FROM `users` WHERE `name` = ? LIMIT 1");
+            $select_profile->execute([$fetch_post['title']]);
+            $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+
+            if($fetch_profile['vip_status'] == '' &&  $select_reviews->rowCount() < 5){ ?>
+            <div class="heading"><h1>Referencias de clientes</h1> <a href="add_review.php?get_id=<?= $get_id; ?>" class="inline-btn" style="margin-top: 0;">añadir referencia</a></div>
+         <?php } else if ($select_reviews->rowCount() == 5 && $fetch_profile['vip_status'] == '') { ?>
+         <div class="heading"><h1 style="text-transform: inherit;">Este usuario tiene un límite de 5 referencias. Su cliente deberá adquirir el VIP para añadir más referencias.</h1></div>
+         <?php } else { ?> 
+            <div class="heading"><h1>Referencias de clientes</h1> <a href="add_review.php?get_id=<?= $get_id; ?>" class="inline-btn" style="margin-top: 0;">añadir referencia</a></div>
+         <?php }
          }
-      }else{
-         echo '<p class="empty">Ningún post...</p>';
       }
-   ?>
+   } 
+}
+}else{
+      header('location:404.php');
+   } ?>
    <div class="box-container">
 
    <?php
-      $select_reviews = $conn->prepare("SELECT * FROM `reviews` WHERE post_id = ?");
+      $select_reviews = $conn->prepare("SELECT * FROM `reviews` WHERE post_id = ? ORDER BY idAdmin DESC");
       $select_reviews->execute([$get_id]);
       if($select_reviews->rowCount() > 0){
          while($fetch_review = $select_reviews->fetch(PDO::FETCH_ASSOC)){
@@ -228,23 +242,16 @@ if(isset($_POST['delete_review'])){
 
 <!-- reviews section ends -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- sweetalert cdn link  -->
+<?php include 'helpers/footer.php'; ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 <!-- custom js file link  -->
+<script>
+   const BASE_URL = "<?php echo BASE_URL; ?>"
+</script>
+<script src="js/app.js"></script>
 <script src="js/script.js"></script>
+
 
 <?php include 'helpers/alers.php'; ?>
 

@@ -16,18 +16,18 @@ if(isset($_POST['submit'])){
    if(!empty($name)){
       $update_name = $conn->prepare("UPDATE `users` SET name = ? WHERE id = ?");
       $update_name->execute([$name, $user_id]);
-      $success_msg[] = 'Username updated!';
+      $success_msg[] = 'Usuario actualizado';
    }
 
    if(!empty($email)){
       $verify_email = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
       $verify_email->execute([$email]);
       if($verify_email->rowCount() > 0){
-         $warning_msg[] = 'Email already taken!';
+         $warning_msg[] = 'Este correo ya existe';
       }else{
          $update_email = $conn->prepare("UPDATE `users` SET email = ? WHERE id = ?");
          $update_email->execute([$email, $user_id]);
-         $success_msg[] = 'Email updated!';
+         $success_msg[] = 'Correo actualizado';
       }
    }
 
@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
 
   if(!empty($image)){
    if($image_size > 2000000){
-      $warning_msg[] = 'Image size is too large!';
+      $warning_msg[] = 'Imagen demasiado grande';
    }else{
       $update_image = $conn->prepare("UPDATE `users` SET image = ? WHERE id = ?");
       $update_image->execute([$rename, $user_id]);
@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
       if($fetch_user['image'] != ''){
          unlink('uploaded_files/'.$fetch_user['image']);
       }
-      $success_msg[] = 'Image updated!';
+      $success_msg[] = 'Imagen actualizada';
    }
   }
 
@@ -75,15 +75,15 @@ if(isset($_POST['submit'])){
             if($empty_new != 1){
                $update_pass = $conn->prepare("UPDATE `users` SET password = ? WHERE id = ?");
                $update_pass->execute([$new_pass, $user_id]);
-               $success_msg[] = 'Password updated!';
+               $success_msg[] = 'Contraseña Actualizada!';
             }else{
-               $warning_msg[] = 'Please enter new password!';
+               $warning_msg[] = 'Por favor introduzca la nueva contraseña';
             }
          }else{
-            $warning_msg[] = 'Confirm password not matched!';
+            $warning_msg[] = 'Confirme la contraseña, no coincide';
          }
       }else{
-         $warning_msg[] = 'Old password not matched!';
+         $warning_msg[] = 'Contraseña actual no coincide';
       }
   }
    
@@ -96,14 +96,14 @@ if(isset($_POST['delete_image'])){
    $fetch_old_pic = $select_old_pic->fetch(PDO::FETCH_ASSOC);
 
    if($fetch_old_pic['image'] == ''){
-      $warning_msg[] = 'Image already deleted!';
+      $warning_msg[] = 'Imagen de perfil ya eliminada!';
    }else{
       $update_old_pic = $conn->prepare("UPDATE `users` SET image = ? WHERE id = ?");
       $update_old_pic->execute(['', $user_id]);
       if($fetch_old_pic['image'] != ''){
          unlink('uploaded_files/'.$fetch_old_pic['image']);
       }
-      $success_msg[] = 'Image deleted!';
+      $success_msg[] = 'Imagen eliminada';
    }
 
 }
@@ -111,53 +111,53 @@ if(isset($_POST['delete_image'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>PC Gamer References | Edición de perfil</title>
+   <title> Rating Me | Edición de perfil</title>
 
-   <!-- custom css file link  -->
+   <link rel="shortcut icon" href="<?php echo BASE_URL . "uploaded_files/icon.png"; ?>">
    <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
-   
-<!-- header section starts  -->
-<?php include 'helpers/header.php'; ?>
-<!-- header section ends -->
 
-<!-- update section starts  -->
+   <!-- header section starts  -->
+   <?php include 'helpers/header.php'; ?>
+   <!-- header section ends -->
 
-<section class="account-form">
+   <!-- update section starts  -->
 
-   <form action="" method="post" enctype="multipart/form-data">
-      <h3>update your profile!</h3>
-      <p class="placeholder">your name</p>
-      <input type="text" name="name" maxlength="50" placeholder="<?= $fetch_profile['name']; ?>" class="box">
-      <p class="placeholder">your email</p>
-      <input type="email" name="email" maxlength="50" placeholder="<?= $fetch_profile['email']; ?>" class="box">
-      <p class="placeholder">old password</p>
-      <input type="password" name="old_pass" maxlength="50" placeholder="enter your old password" class="box">
-      <p class="placeholder">new password</p>
-      <input type="password" name="new_pass" maxlength="50" placeholder="enter your new password" class="box">
-      <p class="placeholder">confirm password</p>
-      <input type="password" name="c_pass" maxlength="50" placeholder="confirm your new password" class="box">
-      <?php if($fetch_profile['image'] != ''){ ?>
+   <section class="account-form">
+
+      <form action="" method="post" enctype="multipart/form-data">
+         <h3>Actualiza tu perfil</h3>
+         <p class="placeholder">Nombre y Apellido</p>
+         <input type="text" name="name" maxlength="50" placeholder="<?= $fetch_profile['name']; ?>" class="box">
+         <p class="placeholder">Correo</p>
+         <input type="email" name="email" maxlength="50" placeholder="<?= $fetch_profile['email']; ?>" class="box">
+         <p class="placeholder">Contraseña actual</p>
+         <input type="password" name="old_pass" maxlength="50" placeholder="*********" class="box">
+         <p class="placeholder">Nueva contraseña</p>
+         <input type="password" name="new_pass" maxlength="50" placeholder="*********" class="box">
+         <p class="placeholder">Confimar contraseña</p>
+         <input type="password" name="c_pass" maxlength="50" placeholder="*********" class="box">
+         <?php if($fetch_profile['image'] != ''){ ?>
          <img src="uploaded_files/<?= $fetch_profile['image']; ?>" alt="" class="image">
-         <input type="submit" value="delete image" name="delete_image" class="delete-btn" onclick="return confirm('delete this image?');">
-      <?php }; ?>
-      <p class="placeholder">profile pic</p>
-      <input type="file" name="image" class="box" accept="image/*">
-      <input type="submit" value="update now" name="submit" class="btn">
-   </form>
+         <input type="submit" value="Eliminar imagen de perfil" name="delete_image" class="delete-btn"
+            onclick="return confirm('delete this image?');">
+         <?php }; ?>
+         <p class="placeholder">Imagen de perfil</p>
+         <input type="file" name="image" class="box" accept="image/*">
+         <input type="submit" value="Actualizar Perfil" name="submit" class="btn">
+      </form>
 
-</section>
+   </section>
 
-<!-- update section ends -->
-
-
-
+   <!-- update section ends -->
 
 
 
@@ -170,13 +170,20 @@ if(isset($_POST['delete_image'])){
 
 
 
-<!-- sweetalert cdn link  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
-<!-- custom js file link  -->
-<script src="js/script.js"></script>
 
-<?php include 'helpers/alers.php'; ?>
+
+   <?php include 'helpers/footer.php'; ?>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+   <!-- custom js file link  -->
+   <script>
+      const BASE_URL = "<?php echo BASE_URL; ?>"
+   </script>
+   <script src="js/script.js"></script>
+
+   <?php include 'helpers/alers.php'; ?>
 
 </body>
+
 </html>

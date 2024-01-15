@@ -61,9 +61,9 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>PC Gamer References | Registro </title>
+   <title>  Rating Me | Registro </title>
 
-   <!-- custom css file link  -->
+   <link rel="shortcut icon" href="<?php echo BASE_URL . "uploaded_files/icon.png"; ?>">
    <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
 
    <form action="" method="post" enctype="multipart/form-data">
       <h3>Registrando usuario</h3>
-      <p class="placeholder">Nombre <span>*</span></p>
+      <p class="placeholder">Nombre y Apellido <span>*</span></p>
       <input type="text" name="name" required maxlength="50" placeholder="Joe Kingsman" class="box">
       <p class="placeholder">Correo<span>*</span></p>
       <input type="email" name="email" required maxlength="50" placeholder="email@mail.com" class="box">
@@ -106,7 +106,7 @@ if(isset($_POST['submit'])){
 
 
 
-<!-- sweetalert cdn link  -->
+<?php include 'helpers/footer.php'; ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 <!-- custom js file link  -->

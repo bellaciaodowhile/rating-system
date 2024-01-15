@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-01-2024 a las 03:25:39
+-- Tiempo de generación: 16-01-2024 a las 00:48:53
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -39,9 +39,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`idAdmin`, `id`, `title`, `image`) VALUES
-(10, 'nfPlb6mZcI5yMQvxBEV2', 'nombre apellido', 'default.avif'),
-(11, 'r5mrrd0Ewy2NDpfgK6Os', 'Mario', 'default.avif'),
-(12, '73c6k60r6GMDeAerkGaO', 'Cosas que tener', 'CibJBycH027mdvX6amTj.jpeg');
+(16, 'yApwAM7OEEiByDd8g0Ya', 'Ramiro Velasquez', 'default.avif'),
+(17, 'zwXKNRJxc3i92B8SKkcF', 'Samira Lolera', 'vGyxgDU8QEM3bstnsQX7.jpg');
 
 -- --------------------------------------------------------
 
@@ -65,29 +64,10 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`idAdmin`, `id`, `post_id`, `user_id`, `rating`, `title`, `description`, `date`) VALUES
-(5, 'nkG06vKYLXlOD7nV32Yu', 'nfPlb6mZcI5yMQvxBEV2', 'vJtDwOWppXLmUlad03cY', '1', 'ue teas', 'Agradezco', ''),
-(6, 'gFSJOigxG4JqJjDOvLOK', 'nfPlb6mZcI5yMQvxBEV2', 'vJtDwOWppXLmUlad03cY', '3', 'fdsafdsa', 'fdsafdsa', ''),
-(7, 'KsgqZ3wMUrLLIskg4QIj', 'nfPlb6mZcI5yMQvxBEV2', 'VANt87jOnQsxJY73Bqbs', '5', 'Calidad', 'calidad', ''),
-(8, 'QN5k8ffiQdIkw5a5eHjT', 'nfPlb6mZcI5yMQvxBEV2', 'VANt87jOnQsxJY73Bqbs', '1', 'vale ', 'conchale', ''),
-(9, 'ZmXBQi1xZUBOcDsOg86r', '73c6k60r6GMDeAerkGaO', 'tPI3880aVbmQqYkzy9E8', '5', 'Ahorita', 'contrasena', ''),
-(10, 'keXGehslW2vXxXqq2l4E', '73c6k60r6GMDeAerkGaO', 'tPI3880aVbmQqYkzy9E8', '5', 'SDabanita', 'conachas', ''),
-(11, '87JlFZOKKT78Esxk1G5K', '73c6k60r6GMDeAerkGaO', 'tPI3880aVbmQqYkzy9E8', '1', 'Vale ', '$get_id = $_GET[&#39;get_id&#39;];', ''),
-(12, 'nXkDTO628KU8UJMtn2lW', 'fdsfd', 'tPI3880aVbmQqYkzy9E8', '1', 'fdsa', 'fdsa', ''),
-(13, 'YbcQv41MnZbkAqQGoneG', 'r5mrrd0Ewy2NDpfgK6Os', 'tPI3880aVbmQqYkzy9E8', '1', '', 'es calidad vender placas, pero no tanto', ''),
-(14, 'WlWcBVOXGGww28OMl1Mn', 'r5mrrd0Ewy2NDpfgK6Os', 'tPI3880aVbmQqYkzy9E8', '1', 'placas', 'es malo vendiendo placas', ''),
-(15, 'ElneteVxzF8mNCsUvRtI', 'r5mrrd0Ewy2NDpfgK6Os', 'tPI3880aVbmQqYkzy9E8', '1', 'Negra', 'Marron con clase', ''),
-(16, 'jmMpCPnoGOYLHnuK11g7', 'r5mrrd0Ewy2NDpfgK6Os', 'tPI3880aVbmQqYkzy9E8', '1', 'Venta de palomas', 'le gustan muchas palomas', ''),
-(17, 'Ltf53zPWlLEGNIDhMTop', 'r5mrrd0Ewy2NDpfgK6Os', 'tPI3880aVbmQqYkzy9E8', '1', 'Mario', 'es gay', ''),
-(18, 'WVEJ6E87QoExlLzNgC9T', 'r5mrrd0Ewy2NDpfgK6Os', 'tPI3880aVbmQqYkzy9E8', '1', 'mario', 'fdsafdsa', ''),
-(19, 'fU3zuojoaKhpn9QGID35', 'r5mrrd0Ewy2NDpfgK6Os', 'tPI3880aVbmQqYkzy9E8', '1', 'fdsa', 'fdsa', ''),
-(20, 'fWDbSnsFIjlZKAPNSO9K', 'r5mrrd0Ewy2NDpfgK6Os', 'tPI3880aVbmQqYkzy9E8', '1', 'fdsa', 'fdsa', ''),
-(21, 'd3Njk0FdZIA70GaSzBO0', '73c6k60r6GMDeAerkGaO', 'tPI3880aVbmQqYkzy9E8', '2', 'Esta es el titulo', 'Y ahora la description', ''),
-(22, '9DrGBGglGwieLxYoHmDO', '73c6k60r6GMDeAerkGaO', 'tPI3880aVbmQqYkzy9E8', '2', 'Esta es el titulo', 'Y ahora la description', ''),
-(23, 'BW0N1pBHPNf7int6lD6q', '73c6k60r6GMDeAerkGaO', 'tPI3880aVbmQqYkzy9E8', '1', 'esafdsa', 'fdsa', ''),
-(24, '6oWxqkz2m0GUWdoNvu8s', '73c6k60r6GMDeAerkGaO', 'tPI3880aVbmQqYkzy9E8', '1', 'esafdsa', 'fdsa', ''),
-(25, 'Qa9LzdeXIz8oTADPPgoC', '73c6k60r6GMDeAerkGaO', 'tPI3880aVbmQqYkzy9E8', '5', 'Novale', 'Claro que si', ''),
-(26, 'fpFXJnkLM5Qk6yvcKwAv', '73c6k60r6GMDeAerkGaO', 'tPI3880aVbmQqYkzy9E8', '2', 'Esta es la otra vale', 'Claro que siss', ''),
-(27, 'mBE5lAZFmlHJUcx7NgDW', '73c6k60r6GMDeAerkGaO', 'tPI3880aVbmQqYkzy9E8', '3', 'Putocarro', 'estasies', '');
+(41, 'ZNiVjy5OOhEuX9f0fXc0', 'zwXKNRJxc3i92B8SKkcF', '0aPxTFjeJbD9RPeLHcjF', '5', 'Compra de USDT', 'Contrasena calidad', 'Enero 15, 2024 7:39 PM'),
+(42, 'Q48Uw0ycox9UWElY1wGr', 'zwXKNRJxc3i92B8SKkcF', '0aPxTFjeJbD9RPeLHcjF', '5', 'fdsafdsa', 'fdsafdsa', 'Enero 15, 2024 7:39 PM'),
+(43, '3dCWkfjKwUzJ7EiHPPik', 'zwXKNRJxc3i92B8SKkcF', '0aPxTFjeJbD9RPeLHcjF', '5', 'Ultimo', 'que te pasa bolivar', 'Enero 15, 2024 7:43 PM'),
+(45, 'lSrVf5yhTA5fHc2mwbfV', 'zwXKNRJxc3i92B8SKkcF', '0aPxTFjeJbD9RPeLHcjF', '5', 'fdsafdsa123', '123', 'Enero 15, 2024 7:45 PM');
 
 -- --------------------------------------------------------
 
@@ -101,17 +81,19 @@ CREATE TABLE `users` (
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `image` varchar(30) NOT NULL
+  `image` varchar(30) NOT NULL,
+  `vip` varchar(222) NOT NULL,
+  `vip_status` varchar(222) NOT NULL,
+  `date_vip` varchar(222) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`idAdmin`, `id`, `name`, `email`, `password`, `image`) VALUES
-(5, 'tPI3880aVbmQqYkzy9E8', 'nombre apellido', 'email@gmail.com', '$2y$10$qyRIUGfKNeajLgmA6GULoeN2MgiYfTcdXhdTqQKSqcNnIHJJS4HM2', 'default.avif'),
-(6, 'vJtDwOWppXLmUlad03cY', 'Mario', 'kart@mail.com', '$2y$10$EwHDpnH0PZQ9bAo.eP3X5.XnDrfNRuVFTlDHUeOQGlA4/VtvyUOeG', 'default.avif'),
-(7, 'VANt87jOnQsxJY73Bqbs', 'Cosas que tener', 'cosas@gmail.com', '$2y$10$UpOndPNIk2CmJybOt4k0zeaIina2uRv1po.pOyeOG0vc59tie5fd6', 'CibJBycH027mdvX6amTj.jpeg');
+INSERT INTO `users` (`idAdmin`, `id`, `name`, `email`, `password`, `image`, `vip`, `vip_status`, `date_vip`) VALUES
+(11, '0aPxTFjeJbD9RPeLHcjF', 'Ramiro Velasquez', 'email@gmail.com', '$2y$10$JVX/DJrS4JyUacYOauR9zeN7aJWdjpl0AMNSk18uWCe24MowSVyEC', 'default.avif', '321321321', '1', 'Enero 15, 2024 7:35 PM'),
+(12, 'SxtlFJtBR7QTDDYEwePN', 'Samira Lolera', 'correo@gmail.com', '$2y$10$162kf0pXBVxX.ILWqDH94.WHfLuj8okpXFaPmmfUW5JUUiiXRRZLu', 'vGyxgDU8QEM3bstnsQX7.jpg', '', '', '');
 
 --
 -- Índices para tablas volcadas
@@ -143,19 +125,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
