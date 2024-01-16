@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-01-2024 a las 00:48:53
+-- Tiempo de generación: 16-01-2024 a las 16:16:42
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -92,7 +92,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`idAdmin`, `id`, `name`, `email`, `password`, `image`, `vip`, `vip_status`, `date_vip`) VALUES
-(11, '0aPxTFjeJbD9RPeLHcjF', 'Ramiro Velasquez', 'email@gmail.com', '$2y$10$JVX/DJrS4JyUacYOauR9zeN7aJWdjpl0AMNSk18uWCe24MowSVyEC', 'default.avif', '321321321', '1', 'Enero 15, 2024 7:35 PM'),
+(11, '0aPxTFjeJbD9RPeLHcjF', 'Ramiro Velasquez', 'email@gmail.com', '$2y$10$JVX/DJrS4JyUacYOauR9zeN7aJWdjpl0AMNSk18uWCe24MowSVyEC', 'default.avif', '123123', '1', 'Enero 16, 2024 11:12 AM'),
 (12, 'SxtlFJtBR7QTDDYEwePN', 'Samira Lolera', 'correo@gmail.com', '$2y$10$162kf0pXBVxX.ILWqDH94.WHfLuj8okpXFaPmmfUW5JUUiiXRRZLu', 'vGyxgDU8QEM3bstnsQX7.jpg', '', '', '');
 
 --

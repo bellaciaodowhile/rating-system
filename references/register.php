@@ -39,12 +39,12 @@ if(isset($_POST['submit'])){
       $warning_msg[] = 'Se ha registrado un usuario con este correo';
    }else{
       if($c_pass == 1){
-         $insert_user = $conn->prepare("INSERT INTO `users`(id, `name`, email, `password`, `image`) VALUES(?,?,?,?,?)");
-         $insert_user->execute([$id, $name, $email, $pass, $rename]);
+         $insert_user = $conn->prepare("INSERT INTO users (`id`, `name`, `email`, `password`, `image`, vip, vip_status, date_vip) VALUES (?,?,?,?,?,?,?,?)");
+         $insert_user->execute([$id, $name, $email, $pass, $rename, '','','']);
          $success_msg[] = 'Registro correcto!';
          // *
-         $insert_user = $conn->prepare("INSERT INTO `posts`(id, title, `image`) VALUES(?,?,?)");
-         $insert_user->execute([create_unique_id(), $name, $rename]);
+         $insert_post = $conn->prepare("INSERT INTO posts (`id`, `title`, `image`) VALUES(?,?,?)");
+         $insert_post->execute([create_unique_id(), $name, $rename]);
          header('location:login.php');
       }else{
          $warning_msg[] = 'Confirma la contraseña';
