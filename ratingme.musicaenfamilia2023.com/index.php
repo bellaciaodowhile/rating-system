@@ -50,7 +50,7 @@ include 'components/connect.php';
          <h1>Usuario verificado</h1>
       </div> -->
       <div class="box__content">
-         <img src="uploaded_files/<?= $fetch_post['image']; ?>" alt="<?= $fetch_post['title']; ?>" class="image">
+         <img src="<?php echo BASE_URL; ?>uploaded_files/<?= $fetch_post['image']; ?>" alt="<?= $fetch_post['title']; ?>" class="image">
          <h3 class="title"><?= $fetch_post['title']; ?></h3>
          <p class="total-reviews"><i class="fas fa-star"></i> <span><?= $total_reviews; ?></span></p>
 

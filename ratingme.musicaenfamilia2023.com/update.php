@@ -107,7 +107,9 @@ if(isset($_POST['delete_image'])){
       $update_postimg = $conn->prepare("UPDATE `posts` SET image = ? WHERE title = ?");
       $update_postimg->execute(['default.avif', $fetch_old_pic['name']]);
       if($fetch_old_pic['image'] != ''){
-         unlink('uploaded_files/'.$fetch_old_pic['image']);
+          if ($fetch_old_pic['image'] != 'default.avif') {
+             unlink('uploaded_files/'.$fetch_old_pic['image']);
+          }
       }
       $success_msg[] = 'Imagen eliminada';
    }
