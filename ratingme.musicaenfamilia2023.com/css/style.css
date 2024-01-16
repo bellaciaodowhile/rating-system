@@ -912,6 +912,32 @@ a.references {
    margin-top: 10px;
    margin-bottom: 2em;
 }
+.a__whatsapp {
+   display: flex;
+   align-items: center;
+   gap: 5px;
+   color: white;
+   background: #4dc247;
+   border-radius: 10px 10px 0 0;
+}
+.a__whatsapp span {
+   font-size: 1.6rem;
+   font-weight: bold;
+}
+.whatsapp-ico{
+   fill: white;
+   /* width: 50px; */
+   height: 50px;
+   padding: 3px;
+   background-color: #4dc247;
+   border-radius: 50%;
+   box-shadow: 2px 2px 6px #00000026;
+   /* box-shadow: 2px 2px 11px rgba(0,0,0,0.7); */
+   /* position: fixed; */
+   /* bottom: 20px; */
+   /* right : 20px; */
+   /* z-index: 10; */
+}
 
 .rating__star {
    display: block;
