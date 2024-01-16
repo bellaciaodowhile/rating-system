@@ -899,7 +899,7 @@
         array[YEAR] = parseInt(input, 10);
     });
 
-    // HELPERS
+    // components
 
     function daysInYear(year) {
         return isLeapYear(year) ? 366 : 365;
@@ -1487,7 +1487,7 @@
         }
     );
 
-    // HELPERS
+    // components
 
     // LOCALES
 
@@ -1568,7 +1568,7 @@
         week[token] = toInt(input);
     });
 
-    // HELPERS
+    // components
 
     function parseWeekday(input, locale) {
         if (typeof input !== 'string') {
@@ -3312,7 +3312,7 @@
         config._tzm = offsetFromString(matchShortOffset, input);
     });
 
-    // HELPERS
+    // components
 
     // timezone chunker
     // '+10:00' > ['10',  '00']
@@ -4799,7 +4799,7 @@
         config._dayOfYear = toInt(input);
     });
 
-    // HELPERS
+    // components
 
     // MOMENTS
 

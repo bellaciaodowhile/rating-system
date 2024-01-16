@@ -79,7 +79,7 @@ if (formReview != undefined) {
       let submit = '';
       let date = moment().format('LLL');
       AJAX({
-         url: 'helpers/add__review.php',
+         url: 'components/add__review.php',
          data: [{
             title,
             description,
@@ -135,7 +135,7 @@ if (formVip != undefined) {
       if (ref != '') {
          if (confirm('Debe confirmar muy bien el número de referencia ¿desea continuar?')) {
             AJAX({
-               url: 'helpers/add__review.php',
+               url: 'components/add__review.php',
                data: [{
                   idUser,
                   ref,
@@ -147,7 +147,7 @@ if (formVip != undefined) {
                      alert('Ha ocurrido un error');
                   } else if (response == 'success') {
                      alert('¡Operación exitosa! Gracias por confiar en nosotros, en breve activaremos su cuenta VIP. Deberá iniciar sesión nuevamente.');
-                     location.href = BASE_URL + 'helpers/logout.php';
+                     location.href = BASE_URL + 'components/logout.php';
                   } else {
                      alert('Debe colocar la referencia para continuar.');
                   }

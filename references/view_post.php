@@ -1,6 +1,6 @@
 <?php
 
-include 'helpers/connect.php';
+include 'components/connect.php';
 session_start();
 if(isset($_GET['get_id'])){
    $get_id = $_GET['get_id'];
@@ -86,7 +86,7 @@ if(isset($_POST['delete_review'])){
 <body>
    
 <!-- header section starts  -->
-<?php include 'helpers/header.php'; ?>
+<?php include 'components/header.php'; ?>
 <!-- header section ends -->
 
 <!-- view posts section starts  -->
@@ -242,7 +242,7 @@ if(isset($_POST['delete_review'])){
 
 <!-- reviews section ends -->
 
-<?php include 'helpers/footer.php'; ?>
+<?php include 'components/footer.php'; ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 <!-- custom js file link  -->
@@ -253,7 +253,7 @@ if(isset($_POST['delete_review'])){
 <script src="js/script.js"></script>
 
 
-<?php include 'helpers/alers.php'; ?>
+<?php include 'components/alers.php'; ?>
 
 </body>
 </html>

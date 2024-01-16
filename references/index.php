@@ -1,6 +1,6 @@
 <?php
 
-include 'helpers/connect.php';
+include 'components/connect.php';
 
 ?>
 
@@ -18,7 +18,7 @@ include 'helpers/connect.php';
 <body>
    
 <!-- header section starts  -->
-<?php include 'helpers/header.php'; ?>
+<?php include 'components/header.php'; ?>
 <!-- header section ends -->
 
 <!-- view all posts section starts  -->
@@ -85,7 +85,7 @@ include 'helpers/connect.php';
 
 
 
-<?php include 'helpers/footer.php'; ?>
+<?php include 'components/footer.php'; ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 <!-- custom js file link  -->
@@ -96,7 +96,7 @@ include 'helpers/connect.php';
 <script src="js/script.js"></script>
 
 
-<?php include 'helpers/alers.php'; ?>
+<?php include 'components/alers.php'; ?>
 
 </body>
 </html>

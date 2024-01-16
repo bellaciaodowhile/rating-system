@@ -54,7 +54,7 @@
          
          <a href="view_post.php?get_id=<?= $post_id; ?>" class="btn btn--white">Mis referencias</a>
          <a href="update.php" class="btn btn--white">Editar perfil</a>
-         <a href="helpers/logout.php" class="delete-btn"
+         <a href="components/logout.php" class="delete-btn"
             onclick="return confirm('¿Esta seguro de cerrar sesión?');">Cerrar sesion</a>
          <?php }else{ ?>
          <div class="flex-btn">
