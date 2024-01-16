@@ -90,13 +90,8 @@
          <button class="btn__submit__vip mb-5" type="submit">
             Enviar referencia
          </button>
-         <?php } else { ?>
-            <button href="login.php" class="btn__submit__vip mb-2">
-               Iniciar sesión
-            </button>
-            <a href="register.php" class="mb-2">¿No te has registrado? Regístrate</a>
          <?php } ?>
-      <?php } else if ($fetch_profile['vip_status'] == '') { ?>
+      <?php } else if ($fetch_profile['vip_status'] == '' && $fetch_profile['vip'] != '') { ?>
          <div class="btn__submit__vip mb-2">
             <p>Procesando VIP</p>
          </div>
@@ -105,6 +100,12 @@
             <p>VIP Activo</p>
          </div>
       <?php } ?>
+   <?php } 
+   if ($user_id == '') { ?>
+      <a href="login.php" class="btn__submit__vip mb-2">
+         Iniciar sesión
+      </a>
+      <a href="register.php" style="width: 250px;" class="mb-2">¿No te has registrado? Regístrate</a>
    <?php } ?>
 
 
